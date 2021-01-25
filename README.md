@@ -1,6 +1,6 @@
-# ARMNN Development Enviroment and SDK with i.MX BSP
+# Development Enviroment for armnn-imx with i.MX BSP
 
-区别于 original ArmNN
+用于使用 i.MX BSP 编译 https://source.codeaurora.org/external/imx/armnn-imx
 
 ## Usage
 

@@ -5,13 +5,14 @@
 # =============================================================================
 MANUAL_DEP=${MANUAL_DEP:-y}         # 是否手动安装依赖
 APT_SMART=${APT_SMART:-n}           # 是否启用 apt-samrt 自动配置镜像源
-export BSP_LOCATE=${BSP_LOCATE:-/opt/fsl-imx-xwayland/5.4-zeus}  # 编译的发行版本
+# export BSP_LOCATE=${BSP_LOCATE:-/opt/fsl-imx-xwayland/5.4-zeus}  # 编译的发行版本
+export BSP_LOCATE=${BSP_LOCATE:-/opt/fsl-imx-wayland/5.4-zeus}  # 编译的发行版本
 # ! 特别注意 SDK 安装后直接移动是无法正常使用，更换安装位置需要重新运行 .sh 部署
 export ROOT_DIR=${1:-$PWD}          # 相对位置
-# export DEPLOY_TARGET_x86_64=${1:-$ROOT_DIR/build/x86_64} # SDK and unit test deploy path
-# export DEPLOY_TARGET_arm64=${1:-$ROOT_DIR/build/arm64} # SDK and unit test deploy path
-export DEPLOY_TARGET_x86_64=$BSP_LOCATE/sysroots/x86_64-pokysdk-linux/usr
-export DEPLOY_TARGET_arm64=$BSP_LOCATE/sysroots/aarch64-poky-linux/usr
+export DEPLOY_TARGET_x86_64=${1:-$ROOT_DIR/build/x86_64} # SDK and unit test deploy path
+export DEPLOY_TARGET_arm64=${1:-$ROOT_DIR/build/arm64} # SDK and unit test deploy path
+# export DEPLOY_TARGET_x86_64=$BSP_LOCATE/sysroots/x86_64-pokysdk-linux/usr
+# export DEPLOY_TARGET_arm64=$BSP_LOCATE/sysroots/aarch64-poky-linux/usr
 
 # 保护现场
 export _path_bak="$PATH"
