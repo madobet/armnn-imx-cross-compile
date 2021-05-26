@@ -203,7 +203,7 @@ post_process_armnn_sdk(){
         --exclude='src' \
         -cvf armnn-imx_release_${ver}.tar.gz *
     make install && [ $? -ne 0 ] && exit 1
-    cp -f "$DEPLOY_TARGET"/arm64/lib/libprotobuf.so.* ./
+    cp -f "${DEPLOY_TARGET_arm64}"/lib/libprotobuf.so.* ./
     cat << EOF > "$ROOT_DIR/armnn-imx/build/unit_test.sh"
 #!/bin/sh
 export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:$ROOT_DIR/armnn-imx/build
@@ -237,6 +237,7 @@ compile_install_armnn_sdk_local(){
     #! 最后必须指定 -DBoost_INCLUDE_DIR -DBoost_LIBRARY_DIR 可以正常编译，
     #! 而使用 -DBOOST_INCLUDEDIR 和 -DBOOST_LIBRARYDIR 也不行…
     cmake .. \
+        -DCMAKE_INSTALL_PREFIX="${DEPLOY_TARGET_arm64}" \
         -DCMAKE_TOOLCHAIN_FILE=$OECORE_NATIVE_SYSROOT/usr/share/cmake/OEToolchainConfig.cmake \
         -DARMCOMPUTE_ROOT=$ROOT_DIR/arm-computelibrary-imx \
         -DARMCOMPUTE_BUILD_DIR=/build \
