@@ -6,14 +6,14 @@
 
 运行
 ```shell
-# 最简单的用法，编译结果位于 <repo directory>/build
-./build.sh
+# 用例，编译结果位于 <repo directory>/build
+./build_local.sh    # 必要依赖都通过源码编译
+# ./build_bsp.sh    # 使用 BSP 中的依赖进行编译（BSP 中必须包含必要的文件）
 
-# 全部参数都用上
-# BSP_LOCATE=<your BSP installation directory> \
-# DEPLOY_TARGET=<your ARMNN SDK installation directory> \
-# ROOT_DIR=$PWD \
-# MANUAL_DEP=n \
+# 部分可选项
+# BSP_LOCATE=<your BSP installation directory>
+# ROOT_DIR=$PWD
+# MANUAL_DEP=n
 # APT_SMART=n ./build.sh
 ```
 
@@ -21,7 +21,7 @@
 >
 > 必须先安装 i.MX BSP！
 >
-> You should have had an i.MX BSP installed on your machine!
+> There should be at least one i.MX BSP installed on your machine!
 
 Tested on Ubuntu 18.04
 
